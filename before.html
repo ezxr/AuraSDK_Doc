@@ -94,12 +94,12 @@
       <a href="axis.html">影见坐标系</a>
     </li>
     
-    <li class="active">
+    <li class="">
       <a href="start.html">快速入门：创建你的第一个Aura应用</a>
     </li>
 
-    <li class="">
-        <a href="/docs/example/">开始教程前</a>
+    <li class="active">
+        <a href="before.html">开始教程前</a>
     </li>
 
     <li class="">
@@ -130,92 +130,46 @@
 <!-- <span class="overview">Overview</span>
  -->
 
-<h1 class="title">快速入门</h1>
+<h1 class="title">开始教程前</h1>
 <div class="content">
-<p>开发者可根据以下步骤提示，快速开发一个最简单的应用，实现对物体的识别与三维投影。
+<p>
 
 
   <div class="summary mb-2">
-    <h2 class="title-summary">Step 1: 上传待识别的物体模型并生成算法数据
+    <h2 class="title-summary">Awake()的使用事项
     </h2>
-    <p>1. 导入AURA_SDK_UNITY.unitypackage，如下图所示。
-
-      <img src="images/start/1.png">
-      <br>
-
-      2. 导入插件后，打开Windows -> DevTool, 选择需要的识别功能，并上传相应的3D模型或图像，插件将会自动生成识别所需要的算法训练数据。
-      <img src="images/start/2.png">
-      <br>
-
-      3. 在开发者工具界面中，默认物体识别是启用状态 （当前物体识别和图像识别不能同时开启），点击“添加新模型”，从本地上传待识别物体的3D模型（Assets/AURA/Samples/1.ModelProjection/ArtResources/Cake/cake.obj），点击确定，插件会自动生成算法训练数据并导入模型于工程中。
-      <img src="images/start/3.png">
-      <br>
-
-      <strong>注意：当前支持*.obj、*.fbx格式的模型文件，创建模型时请以米 (m) 为单位，并确保模型的上表面与z轴垂直（具体可参考：<a href="/">建模规范说明</a>），并以模型的bounding box中心为原点。
-      </strong>
-      <img src="images/start/4.png">
-      <br>
-
-      4. 完成添加模型之后，返回开发者工具主界面，如下图，蛋糕模型已经被添加在识别物体的列表中。如有需要，可修改物体的名称，勾选是否需要三维位姿、二维轮廓点数据。当前应用需要立体投影，因此勾选三维位姿，二维轮廓点设置为 ”0”。
-      <img src="images/start/5.png">
-      <br>
-
-      5. 关闭开发者工具。
-
+    <p>当在一个继承自AURABehaviour的脚本中使用Unity内置函数Awake时，请务必在Awake中调用base.Awake()以确保功能正常。
     </p>
   </div>
 
   <div class="summary mb-2">
-    <h2 class="title-summary">Step 2: 针对目标物体进行1:1 立体模型投影
+    <h2 class="title-summary">OnDestroy()的使用事项
     </h2>
     <p>
-      模型上传成功后，返回Unity界面，从工程资源列表中，找到ModelProjection脚本（路径：AURA - Samples - 1. ModelProjection），并将其拖拽到 AURA(Clone) 上。
-      <img src="images/start/6.png">
+      当在一个继承自AURABehaviour的脚本中使用Unity内置函数OnDestroy时，请务必在OnDestroy中调用base.OnDestroy()以确保功能正常。
+
       <br>
-      此时，可以在AURA ->ModelProjection 看到modelNames和prefabs两个数组，modelNames对应开发者工具窗口中的模具的Name，prefabs则是要投影到模具上的三维模型，这两个数组是一一对应的关系。并且，将场景主相机拖到MainCamera槽中。如下图所示：
-      <img src="images/start/7.png">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <br>
 
     </p>
   </div>
-
-  <div class="summary mb-2">
-    <h2 class="title-summary">Step 3: 发布APK到影见设备
-    </h2>
-    <p>
-      1. 依次打开 File > Build Settings , 确认Platform中选择了Android, 否则需要选择Android > Switch Platform
-      <br>
-      2. 在Buid Settings对话框中，点击Player Settings， 选择Other Settings, 编辑以下内容后，点击Build
-      <br>
-      <div class="highlight">
-        <pre class="chroma">
-
-      Company Name： 公司名称或自定义名称（英文）
-      Product Name： 产品名称（英文）
-      Package Name：文件包名称，注意请不要使用 com.AI.AURA_SDK_UNITY作为文件包名称
-      Minimum API Level：最小支持的安卓版本号，请选择 Android 4.4
-        </pre>
-      </div>
-
-      3. 将影见设备通过usb连接电脑后，通过adb命令行将生成的apk安装到影见设备中运行，命令行格式如下
-      <br>
-      <br>
-      <div class="highlight">
-        <pre class="chroma">
-
-        $ adb install /path/xxx.apk
-        </pre>
-      </div>
-
-      4. 发布应用成功后，在影见端打开该应用，放入目标物体，当影见每次识别到该物体及其位姿后，将会对其投影对应的3D模型，如下图。通过插件发布的应用，初次在影见设备上打开时，会自动拷贝相应的算法文件（与该应用中需识别的模型或图像相对应）到SD卡中，待拷贝完成后，即可开始应用体验。
-
-        <img src="images/start/8.png">
-      <br>
-
-    </p>
-  </div>
-
-  
+ 
 
 </p>
 
@@ -231,7 +185,7 @@
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            <li class="oldversions"><a href="">历史版本</a></li>
+            <li class="oldversions"><a href="/">历史版本</a></li>
           </ul>
         </div>
       </div>
