@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>影见开发者文档</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="images/favicon.ico"> 
+  
+  <link rel="stylesheet" href="css/main.css">
+    
+
+</head>
+
+<body class='page page-default-list'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-docs ">
+      <a href="index.html">
+        <span>开发指南</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs active">
+      <a href="interaction_guide.html">
+        <span>设计指南</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="/"><img alt="Logo" src="images/logo.svg" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="/"><img alt="Logo" src="images/logo-mobile.svg" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home ">
+      <a href="index.html">
+        <span>开发指南</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs active">
+      <a href="interaction_guide.html">
+        <span>设计指南</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+  
+
+    
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <div class="sidebar">
+            
+<div class="docs-menu">
+  <h4>目录</h4>
+  <ul>
+    
+    <li class="active">
+      <a href="interaction_guide.html">实体及交互规范</a>
+    </li>
+    
+    <li class=" ">
+      <a href="glossary.html">建模规范</a>
+    </li>
+    
+  </ul>
+</div>
+
+          </div>
+        </div>
+        <div class="col-12 col-md-9">
+          
+
+<!-- <span class="overview">Overview</span>
+ -->
+
+<h1 class="title">实体及交互规范</h1>
+<div class="content">
+<p>
+
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">物体识别规范
+    </h2>
+    <p>影见系统可同时支持单个或多个独立、静止放置的物体识别与跟踪。影见可识别的物体类别包括园林建筑物模型、布偶、玩具等多种复杂物体，或规则几何形体如圆柱、正方体等。<br><br>
+    
+    交互实体的具体规范说明如下：
+    </p>
+  </div>
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">识别单个模型
+    </h2>
+    <p>
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>规范说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>材质 </td>
+            <td>不镂空、不透光、不易形变、浅色材质 </td>
+          </tr>
+          <tr>
+            <td>尺寸 </td>
+            <td>单个物体上表面面积不小于 25 cm² （见下图）<br>
+            每个物体高度请保持在 1.5 cm 到 20 cm范围内 （见下图)
+            </td>
+          <tr>
+            <td>形状/结构 </td>
+            <td>若单个模型为非对称不规则物体，模型各个视角信息需具有区分度 <br>
+                请尽量避免瘦高形状的物体，避免物体表面有细长突出部分
+             </td>
+          </tr>
+        </tbody>    
+      </table>
+
+      <strong>模型的上表面和高度说明:</strong>
+      <img src="images/interaction_guide/1.png">
+      <strong>物体表面有细长突出部分（左） 瘦高形状物体（右）:</strong>
+      <img src="images/interaction_guide/2.png">
+
+  </div>
+
+   <div class="summary mb-2">
+    <h2 class="title-summary">识别多个模型
+    </h2>
+    <p>
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>规范说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>物体之间的差异性   </td>
+            <td>满足以下条件中至少一条：<br>
+              <ul>
+                <li>模型尺寸具有显著差别 (如高度差2cm以上，或上表面大小有显著差别）</li>
+                <li>轮廓有显著差异性</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>物体之间的间距  </td>
+            <td>物体之间的间距尽量不小于物体自身高度/2
+            </td>
+          <tr>
+            <td>最多可同时识别的模型数量</td>
+            <td>5 - 8 个 （延时会随着需要识别的物体种类数量、物体模型的大小、形状复杂度而增加）
+             </td>
+          </tr>
+        </tbody>    
+      </table>
+
+      <strong>多模型之间的尺寸差异性说明： 上表面大小有显著差别（左） 高度差有2cm以上（右）</strong>
+      <img src="images/interaction_guide/3.png">
+      <strong>多个模型的轮廓具有显著差异性:</strong>
+      <img src="images/interaction_guide/4.png">
+
+  </div>
+
+    <div class="summary mb-2">
+    <h2 class="title-summary">实体交互场景规范
+    </h2>
+    <p>影见系统在发生以下交互行为时将不进行识别，请开发者设计应用时注意以下四种情况：
+      
+      <img src="images/interaction_guide/5.png">
+  </div>
+ 
+    <div class="summary mb-2">
+    <h2 class="title-summary">图像识别规范
+    </h2>
+    <p>针对待识别的图像实体，请注意以下规范说明 ：
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>规范说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>实际尺寸     </td>
+            <td>不小于 290 mm x 210 mm （其中绘本场景，以翻开后的尺寸为准）<br>
+              <ul>
+                <li>模型尺寸具有显著差别 (如高度差2cm以上，或上表面大小有显著差别）</li>
+                <li>轮廓有显著差异性</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>物体之间的间距  </td>
+            <td>物体之间的间距尽量不小于物体自身高度/2
+            </td>
+          <tr>
+            <td>最多可同时识别的模型数量</td>
+            <td>5 - 8 个 （延时会随着需要识别的物体种类数量、物体模型的大小、形状复杂度而增加）
+             </td>
+          </tr>
+        </tbody>    
+      </table>
+
+      <strong>多模型之间的尺寸差异性说明： 上表面大小有显著差别（左） 高度差有2cm以上（右）</strong>
+      <img src="images/interaction_guide/3.png">
+      <strong>多个模型的轮廓具有显著差异性:</strong>
+      <img src="images/interaction_guide/4.png">
+
+  </div>
+ 
+
+</p>
+
+</div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            <li class="oldversions"><a href="/"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="script.js"></script>
+  
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130251315-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-130251315-5');
+    </script>
+  
+
+
+</body>
+
+</html>

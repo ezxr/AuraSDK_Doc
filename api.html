@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>影见开发者文档</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="images/favicon.ico"> 
+  
+  <link rel="stylesheet" href="css/main.css">
+    
+
+</head>
+
+<body class='page page-default-list'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+       
+    <li class="menu-item-docs active">
+      <a href="index.html">
+        <span>开发指南</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="interaction_guide.html">
+        <span>设计指南</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="/"><img alt="Logo" src="images/logo.svg" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="/"><img alt="Logo" src="images/logo-mobile.svg" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home active">
+      <a href="index.html">
+        <span>开发指南</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="interaction_guide.html">
+        <span>设计指南</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+  
+
+    
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <div class="sidebar">
+            
+<div class="docs-menu">
+  <h4>目录</h4>
+  <ul>
+    
+    <li >
+      <a href="index.html">SDK 简介</a>
+    </li>
+    
+    <li class=" ">
+      <a href="glossary.html">名词解释</a>
+    </li>
+    
+    <li class="">
+      <a href="axis.html">影见坐标系</a>
+    </li>
+    
+    <li class="">
+      <a href="start.html">快速入门：创建你的第一个Aura应用</a>
+    </li>
+
+    <li class="">
+        <a href="before.html">开始教程前</a>
+    </li>
+
+    <li class="">
+      <a href="tutorial_1.html">教程1：开发物体识别应用</a>
+    </li>
+
+    <li class="">
+      <a href="tutorial_2.html">教程2：开发图像识别应用</a>
+    </li>
+
+    <li class="">
+      <a href="tutorial_3.html">教程3：使用远程调试功能</a>
+    </li>
+
+    <li class="active">
+      <a href="api.html">API接口说明</a>
+    </li>
+
+    
+  </ul>
+</div>
+
+          </div>
+        </div>
+        <div class="col-12 col-md-9">
+          
+
+<!-- <span class="overview">Overview</span>
+ -->
+
+<h1 class="title">API接口说明</h1>
+<div class="content">
+<p>
+  <div class="summary mb-2">
+    <h2 class="title-summary">Class
+    </h2>
+    <p>ObjectInfo
+      <br>
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>说明</th>
+            <th>类型</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td>为开发者工具DevTool窗口中模具的Name。 检测到其他未知模型时，name为恒定值"unknown"</td>
+            <td>string</td>
+          </tr>
+          <tr>
+            <td>id</td>
+            <td>模具的id (当影见投影区域内存在多个相同模具时通过此id来进行区分）</td>
+            <td>int</td>
+          </tr>
+          <tr>
+            <td>height</td>
+            <td>模具的高度</td>
+            <td>float</td>
+          </tr>
+          <tr>
+            <td>hover</td>
+            <td>模具是否被手遮挡</td>
+            <td>bool</td>
+          </tr>
+          <tr>
+            <td>press</td>
+            <td>模具当前是否被点击</td>
+            <td>bool</td>
+          </tr>
+          <tr>
+            <td>position</td>
+            <td>模具当前在投影仪坐标系下的位置，未知物体的position为空</td>
+            <td>Vector3</td>
+          </tr>
+          <tr>
+            <td>quaternion</td>
+            <td>模具当前在投影仪坐标系下的旋转姿态，未知物体的quaternion为空</td>
+            <td>Quaternion</td>
+          </tr>
+          <tr>
+            <td>contourPoints</td>
+            <td>模具当前在屏幕坐标系下的轮廓点，如果没有开启轮廓点则为null</td>
+            <td> List<span><</span>Vector2<span>></span> </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="highlight">
+        <pre class="chroma">
+public class ObjectInfoDemo : AURABehaviour
+{
+    #region 继承自AURABehaviour的脚本中如果声明了Awake函数或者OnDestroy函数，则Awake函数中必须加入base.Awake()或base.OnDestroy()以确保识别功能正常执行
+    void Awake()
+    {
+        base.Awake;
+        //你的代码
+    }
+
+    void OnDestroy()
+    {
+        base.OnDestroy;
+        //你的代码
+    }
+    #endregion
+
+    List<Vector2> contourPoints = new List<Vector2>();
+    
+    void AURABehaviour_OnObjectDetected(ObjectInfo objectInfo)
+    {
+        Debug.Log("检测到模具：" + objectInfo.name + "ID为：" + objectInfo.id + "Position：" + objectInfo.position + "Quaternion：" + objectInfo.quaternion);
+        contourPoints = objectInfo.contourPoints;
+    }
+
+    void AURABehaviour_OnObjectUpdated(ObjectInfo objectInfo)
+    {
+        Debug.Log("模具位置姿态更新：" + objectInfo.name + "ID为：" + objectInfo.id + "Position：" + objectInfo.position + "Quaternion：" + objectInfo.quaternion);
+        contourPoints = objectInfo.contourPoints;
+    }
+
+    void AURABehaviour_OnObjectLost(ObjectInfo objectInfo)
+    {
+        Debug.Log("丢失模具：" + objectInfo.name + "ID为：" + objectInfo.id);
+    }
+    
+    void OnGUI()
+    {
+        foreach(Vector2 contourPoint in contourPoints)
+        {
+            GUI.Button(new Rect(contourPoint,new Vector2(30,30)),"");
+        }
+    }
+}
+</pre>
+</div>
+    </p>
+  </div>
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">ImageInfo
+    </h2>
+    <p>
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>说明</th>
+            <th>类型</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td>为开发者工具窗口中图像的Name</td>
+            <td>string</td>
+          </tr>
+          <tr>
+            <td>contourPoints</td>
+            <td>模具的四个轮廓点，如果没有开启轮廓点则为null</td>
+            <td>List<span><</span>Vector2<span>></span></td>
+          </tr>
+        </tbody>    
+      </table>
+      <div class="highlight">
+        <pre class="chroma">
+public class ImageInfoDemo : AURABehaviour
+{
+    #region 继承自AURABehaviour的脚本中如果声明了Awake函数或者OnDestroy函数，则Awake函数中必须加入base.Awake()或base.OnDestroy()以确保识别功能正常执行
+    void Awake()
+    {
+        base.Awake;
+        //你的代码
+    }
+
+    void OnDestroy()
+    {
+        base.OnDestroy;
+        //你的代码
+    }
+    #endregion
+
+    List<Vector2> contourPoints = new List<Vector2>();
+
+    void OnImageDetected(ImageInfo imageInfo)
+    {
+        Debug.Log("检测到图像：" + imageInfo.name);
+        contourPoints = imageInfo.contourPoints;
+    }
+    
+    void OnImageUpdated(ImageInfo imageInfo)
+    {
+        Debug.Log("图像位置姿态更新：" + imageInfo.name);
+        contourPoints = imageInfo.contourPoints;
+    }
+    
+    void OnImageLost(ImageInfo imageInfo)
+    {
+        Debug.Log("丢失图像：" + imageInfo.name);
+    }
+    
+    void OnGUI()
+    {
+        foreach(Vector2 contourPoint in contourPoints)
+        {
+            GUI.Button(new Rect(contourPoint,new Vector2(30,30)),"");
+        }
+    }
+}
+        </pre>
+      </div>
+    </p>
+  </div>
+ 
+  <div class="summary mb-2">
+    <h2 class="title-summary">AURAInput
+    </h2>
+    <p>用于获得场景中的手的信息，包括手掌和手指的信息
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>说明</th>
+            <th>类型</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>mainPalm</td>
+            <td>当前场景中第一个被检测到的手的信息 </td>
+            <td>Palm</td>
+          </tr>
+          <tr>
+            <td>palmCount</td>
+            <td>当前场景中检测到的手掌数量 </td>
+            <td>int</td>
+          </tr>
+          <tr>
+            <td>palms</td>
+            <td>当前场景中所有手的信息 </td>
+            <td>List<span><</span>palm<span>></span></td>
+          </tr>
+        </tbody>    
+      </table>
+  </div>
+
+ <div class="summary mb-2">
+    <h2 class="title-summary">Gesture
+    </h2>
+    <p>
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>说明</th>
+            <th>类型</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>wave</td>
+            <td>挥手手势，类型 </td>
+            <td>WaveState</td>
+          </tr>
+          <tr>
+            <td>grasp</td>
+            <td>握拳、摊掌手势 </td>
+            <td>GraspState</td>
+          </tr>
+        </tbody>    
+      </table>
+  </div>
+
+   <div class="summary mb-2">
+    <h2 class="title-summary">WaveState
+    </h2>
+    <p>
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>None</td>
+            <td>没有挥手</td>
+          </tr>
+          <tr>
+            <td>Right</td>
+            <td>向右挥手</td>
+          </tr>
+          <tr>
+            <td>Left</td>
+            <td>向左挥手</td>
+          </tr>
+        </tbody>    
+      </table>
+  </div>
+
+     <div class="summary mb-2">
+    <h2 class="title-summary">GraspState
+    </h2>
+    <p>
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>None</td>
+            <td>没有操作</td>
+          </tr>
+          <tr>
+            <td>CloseFist</td>
+            <td>握拳</td>
+          </tr>
+          <tr>
+            <td>OpenPalm</td>
+            <td>摊开手掌</td>
+          </tr>
+        </tbody>    
+      </table>
+      <div class="highlight">
+        <pre class="chroma">
+public class ObjectInfoDemo : AURABehaviour
+{
+    #region 继承自AURABehaviour的脚本中如果声明了Awake函数或者OnDestroy函数，则Awake函数中必须加入base.Awake()或base.OnDestroy()以确保识别功能正常执行
+    void Awake()
+    {
+        base.Awake;
+        //你的代码
+    }
+
+    void OnDestroy()
+    {
+        base.OnDestroy;
+        //你的代码
+    }
+    #endregion
+
+    List<Vector2> contourPoints = new List<Vector2>();
+    
+    void AURABehaviour_OnObjectDetected(ObjectInfo objectInfo)
+    {
+        Debug.Log("检测到模具：" + objectInfo.name + "ID为：" + objectInfo.id + "Position：" + objectInfo.position + "Quaternion：" + objectInfo.quaternion);
+        contourPoints = objectInfo.contourPoints;
+    }
+
+    void AURABehaviour_OnObjectUpdated(ObjectInfo objectInfo)
+    {
+        Debug.Log("模具位置姿态更新：" + objectInfo.name + "ID为：" + objectInfo.id + "Position：" + objectInfo.position + "Quaternion：" + objectInfo.quaternion);
+        contourPoints = objectInfo.contourPoints;
+    }
+
+    void AURABehaviour_OnObjectLost(ObjectInfo objectInfo)
+    {
+        Debug.Log("丢失模具：" + objectInfo.name + "ID为：" + objectInfo.id);
+    }
+    
+    void OnGUI()
+    {
+        foreach(Vector2 contourPoint in contourPoints)
+        {
+            GUI.Button(new Rect(contourPoint,new Vector2(30,30)),"");
+        }
+    }
+}
+        </pre>
+
+      </div>
+
+  </div>
+
+
+
+    <div class="summary mb-2">
+    <h2 class="title-summary">Palm
+    </h2>
+    <p>手掌信息
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>说明</th>
+            <th>类型</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>position3D</td>
+            <td>当前掌心点在投影仪坐标系下的位置  </td>
+            <td>Vector3 </td>
+          </tr>
+          <tr>
+            <td>position2D  </td>
+            <td>当前掌心点在屏幕坐标系下的位置 </td>
+            <td>Vector2</td>
+          </tr>
+          <tr>
+            <td>fingerCount</td>
+            <td>当前点击的手所使用的手指数量  </td>
+            <td>int</td>
+          </tr>
+          <tr>
+            <td>fingertips</td>
+            <td>手指点击的位置 </td>
+            <td>List<span><</span>Fingertip<span>></span></td>
+          </tr>
+        </tbody>    
+      </table>
+  </div>
+
+<div class="summary mb-2">
+    <h2 class="title-summary">Fingertip
+    </h2>
+    <p>手指信息（对于3288型，手在空中时没有手指信息）
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>说明</th>
+            <th>类型</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>position3D</td>
+            <td>当前手指点击在投影仪坐标系下的位置   </td>
+            <td>Vector3 </td>
+          </tr>
+          <tr>
+            <td>position2D  </td>
+            <td>当前手指点击在屏幕坐标系下的位置   </td>
+            <td>Vector2</td>
+          </tr>
+          <tr>
+            <td>angle</td>
+            <td>手指点击的水平方向倾角   </td>
+            <td>float</td>
+          </tr>
+          <tr>
+            <td>dip</td>
+            <td>手指点击的竖直方向倾角  </td>
+            <td>float</td>
+          </tr>
+          <tr>
+            <td>touch</td>
+            <td>手指是否点击到桌面   </td>
+            <td>bool</td>
+          </tr>
+        </tbody>    
+      </table>
+  </div>
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">AURABehaviour
+    </h2>
+    <p>AURA基本交互类，需要获得AURA模型和图像数据的脚本需继承自AURABehaviour
+      <table>
+        <thead>
+          <tr>
+            <th>函数名</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>onObjectDetected  </td>
+            <td>public void ObjectDetected(ObjectInfo objectInfo);//检测到新模具的时候回调，在模具丢失前只回调一次
+</td>
+          </tr>
+          <tr>
+            <td>OnObjectUpdated   </td>
+            <td>public void OnObjectUpdated(ObjectInfo objectInfo);//当场景中已存在的模具位置姿态有更新的时候回调   </td>
+          </tr>
+          <tr>
+            <td>OnObjectLost</td>
+            <td>public void OnObjectLost(ObjectInfo objectInfo);//当场景中的模具被拿出投影区域的时候回调一次 </td>
+          </tr>
+          <tr>
+            <td>OnImageDetected </td>
+            <td>public void OnImageDetected(ImageInfo objectInfo);//检测到新图片的时候回调，在图片丢失前只回调一次  </td>
+          </tr>
+          <tr>
+            <td>OnImageUpdated</td>
+            <td>public void OnImageUpdated(ImageInfo objectInfo);//当场景中已存在的图像位置姿态有更新的时候回调   </td>
+          </tr>
+          <tr>
+            <td>OnImageLost </td>
+            <td>public void OnImageLost(ImageInfo objectInfo);//当场景中的图片被拿出投影区域的时候回调一次 </td>
+          </tr>
+        </tbody>    
+      </table>
+  </div>
+
+ <div class="summary mb-2">
+    <h2 class="title-summary">点击事件
+    </h2>
+    <p><strong>点击在物体上</strong> <br>
+     <ul> 
+      <li>直接用Input.GetMouseButtonDown(0) 来获得当前是否执行了点击，然后通过Input.mousePostion来判断是否点击在物体上（注意：建议点击事件都用这个而不是Input.GetMouseButton，因为用户点击过快的时候有可能不能触发Input.GetMouseButton）</li>
+      <li>通过onObjectDetected的objectInfo.press来判断</li>
+    </ul>
+    <strong>点击在桌面上</strong> <br>
+     <ul> 
+      <li>直接用Input.GetMouseButtonDown(0) 来获得点击状态</li>
+      <li>对于多手点击或其他复杂情况可以通过遍历每个Fingertip来判断</li>
+    </ul>            
+    </p>
+  </div>
+
+   <div class="summary mb-2">
+    <h2 class="title-summary">屏幕坐标与世界坐标转换
+    </h2>
+    <p><strong>立体投影</strong> <br>
+
+      首先需要引用AURA命名空间 using AURA,<br>
+       <ul> 
+      <li>世界坐标转屏幕坐标<br><br>
+      <div class="highlight">
+        <pre class="chroma">
+
+yourCamera.WorldToScreenPointForAURA(Vector3 position) 
+        </pre>
+      </div>
+     </li>
+     <li>屏幕坐标转世界坐标:  输入的屏幕坐标为Vector3类型，xy为屏幕坐标，z为此屏幕坐标转换到世界坐标系下后的z坐标<br><br>
+      <div class="highlight">
+        <pre class="chroma">
+
+yourCamera.ScreenToWorldPointForAURA(Vector3 position) 
+        </pre>
+      </div>
+     </li>
+    </ul>            
+    </p>
+
+    <p><strong>非立体投影</strong> <br>
+       <ul> 
+      <li>世界坐标转屏幕坐标<br><br>
+      <div class="highlight">
+        <pre class="chroma">
+
+yourCamera.WorldToScreenPoint(Vector3 position)  
+ </pre>
+      </div>
+     </li>
+     <li>屏幕坐标转世界坐标<br><br>
+      <div class="highlight">
+        <pre class="chroma">
+
+yourCamera.WorldToScreenPoint(Vector3 position)       
+ </pre>
+      </div>
+     </li>
+    </ul>            
+    </p>
+  </div>
+
+
+
+</p>
+
+
+</div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            <li class="oldversions"><a href="/"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="script.js"></script>
+  
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130251315-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-130251315-5');
+    </script>
+  
+
+
+</body>
+
+</html>

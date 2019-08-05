@@ -90,7 +90,7 @@
       <a href="glossary.html">名词解释</a>
     </li>
     
-    <li class="active">
+    <li class="">
       <a href="axis.html">影见坐标系</a>
     </li>
     
@@ -102,7 +102,7 @@
         <a href="before.html">开始教程前</a>
     </li>
 
-    <li class="">
+    <li class="active">
       <a href="tutorial_1.html">教程1：开发物体识别应用</a>
     </li>
 
@@ -130,56 +130,82 @@
 <!-- <span class="overview">Overview</span>
  -->
 
-<h1 class="title">影见空间坐标系</h1>
+<h1 class="title">教程1：开发物体识别应用</h1>
 <div class="content">
-<p>开发者拿到的3d坐标是相对于影见相机的坐标，坐标系定义如下（开发者站在影见设备正前方时）：
+<p>
+  首先，请确保工程中已导入AuraSDK，并且已经在开发者工具窗口中选择了要被识别的模具（参考“快速入门：创建你的第一个应用”）。<br><br>
 
-  <div class="highlight">
-    <pre class="chroma">
-      
-    坐标系原点：影见投影镜头的光心
-    x轴：开发者右手方向是x轴正方向
-    y轴：影见朝向开发者的方向是y轴负方向
-    z轴：影见朝向桌面的方向是z轴正方向   
-    </pre>
-  </div>
+  然后，新建场景，或者打开已有的场景，会发现场景中存在一个叫做AURA(Clone)的物体，这就说明当前场景已经准备就绪，我们可以进行开发。<br><br>
+
+  模具放在影见投影区域内将会触发3个阶段的事件，分别为：模具被检测到、模具被移动和模具丢失。<br><br>
+
 
   <div class="summary mb-2">
-    <h2 class="title-summary">坐标系整体视角</h2>
-    <p> 
-      <img src="images/axis/影见坐标系-立体.png">
-    </p>
-  </div>
+    <h2 class="title-summary">1.创建一个继承自 AURABehaviour 的脚本
+    </h2>
+    <p>开发者通过创建一个继承自AURABehaviour的脚本来得到“获取检测信息”的能力。<br><br>
 
-  <div class="summary mb-2">  
-    <h2 class="title-summary">影见前方视角</h2>
-    <p> 
-      <img src="images/axis/影见坐标系-前方.png">
-    </p>
-  </div>
-
-  <div class="summary mb-2">  
-    <h2 class="title-summary">影见侧方视角</h2>
-    <p> 
-      <img src="images/axis/影见坐标系-左手侧.png">
+      <strong>重要说明：继承自AURABehaviour的脚本，如果声明了Awake或者OnDestroy函数，请务必在Awake中调用base.Awake()，OnDestroy中调用base.OnDestroy()以确保功能正常）</strong>
     </p>
   </div>
 
   <div class="summary mb-2">
-    
-    <h2 class="title-summary">影见屏幕坐标系</h2>
-    <p> 影见屏幕坐标系即投影区域的坐标系，坐标系定义如下（开发者站在影见设备正前方时）：
-      <br>
+    <h2 class="title-summary">2. 模具被检测到
+    </h2>
+    <p>
+      当模具刚被放置到投影区域内将会触发“模具被检测到”的事件，通常用于模型的实例化。<br><br>
+
+      OnObjectDetected 的声明形式为：
       <div class="highlight">
         <pre class="chroma">
 
-      坐标系原点：投影区域左上角
-      x轴：右手方向是x轴正方向
-      y轴：开发者后背方向是y轴正方向
+        void OnObjectDetected (ObjectInfo objectInfo)
         </pre>
       </div>
+
+        <strong>参数说明：objectInfo：为ObjectInfo类型，包含检测到的模具信息 （模具的name, id, 三维位姿，轮廓点）。</strong>
+        
     </p>
   </div>
+ 
+  <div class="summary mb-2">
+    <h2 class="title-summary">3. 模具位置姿态更新
+    </h2>
+    <p>
+      当模具位姿发生变化时将会触发“模具位置姿态更新”的事件，通常用于更新模型的位姿。<br><br>
+
+      OnObjectUpdated 的声明形式为：
+      <div class="highlight">
+        <pre class="chroma">
+
+        void OnObjectUpdated (ObjectInfo objectInfo)
+        </pre>
+      </div>
+
+        <strong>参数说明：objectInfo：为ObjectInfo类型，包含检测到的模具信息 （模具的name, id, 三维位姿，轮廓点）。</strong>
+        
+    </p>
+  </div>
+
+    <div class="summary mb-2">
+    <h2 class="title-summary">4. 模具丢失
+    </h2>
+    <p>
+      当模具被从投影区域拿走时将会触发“模具丢失”的事件，通常用于销毁场景中的模型。<br><br>
+
+      OnObjectLost 的声明形式为：
+      <div class="highlight">
+        <pre class="chroma">
+
+        void OnObjectLost (ObjectInfo objectInfo)
+        </pre>
+      </div>
+
+        <strong>参数说明：objectInfo：为ObjectInfo类型，包含检测到的模具信息 （模具的name, id, 三维位姿，轮廓点）。</strong>
+        
+    </p>
+  </div>
+ 
 
 </p>
 
@@ -195,7 +221,7 @@
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            <li class="oldversions"><a href=""></a></li>
+            <li class="oldversions"><a href="/"></a></li>
           </ul>
         </div>
       </div>
