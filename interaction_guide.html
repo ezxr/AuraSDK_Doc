@@ -87,7 +87,7 @@
     </li>
     
     <li class=" ">
-      <a href="glossary.html">建模规范</a>
+      <a href="modeling_guide.html">建模规范</a>
     </li>
     
   </ul>
@@ -214,31 +214,38 @@
         <tbody>
           <tr>
             <td>实际尺寸     </td>
-            <td>不小于 290 mm x 210 mm （其中绘本场景，以翻开后的尺寸为准）<br>
-              <ul>
-                <li>模型尺寸具有显著差别 (如高度差2cm以上，或上表面大小有显著差别）</li>
-                <li>轮廓有显著差异性</li>
-              </ul>
+            <td>不小于 290 mm x 210 mm （其中绘本场景，以翻开后的尺寸为准）
             </td>
           </tr>
           <tr>
-            <td>物体之间的间距  </td>
-            <td>物体之间的间距尽量不小于物体自身高度/2
+            <td>纹理 </td>
+            <td>
+              <ul>
+                <li>图案边缘色差尽量大 （特征点多）</li>
+                <li>纹理相似度低</li>
+                <li>纹理均匀分布、避免元素过于集中</li>
+                <li>避免大面积留白或纯色色块</li>
+              </ul>
             </td>
           <tr>
-            <td>最多可同时识别的模型数量</td>
-            <td>5 - 8 个 （延时会随着需要识别的物体种类数量、物体模型的大小、形状复杂度而增加）
+            <td>材质 </td>
+            <td>不反光
+             </td>
+          </tr>
+          <tr>
+            <td>环境   </td>
+            <td>良好光照或对图像区域投影白光
              </td>
           </tr>
         </tbody>    
       </table>
 
-      <strong>多模型之间的尺寸差异性说明： 上表面大小有显著差别（左） 高度差有2cm以上（右）</strong>
-      <img src="images/interaction_guide/3.png">
-      <strong>多个模型的轮廓具有显著差异性:</strong>
-      <img src="images/interaction_guide/4.png">
+      以下是一些符合要求的与不符合要求的图像样例对比供参考：
 
+      <img src="images/interaction_guide/6.png">
+      <img src="images/interaction_guide/7.png">
   </div>
+
  
 
 </p>

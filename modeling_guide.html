@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>影见开发者文档</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="images/favicon.ico"> 
+  
+  <link rel="stylesheet" href="css/main.css">
+    
+
+</head>
+
+<body class='page page-default-list'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-docs ">
+      <a href="index.html">
+        <span>开发指南</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs active">
+      <a href="interaction_guide.html">
+        <span>设计指南</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="/"><img alt="Logo" src="images/logo.svg" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="/"><img alt="Logo" src="images/logo-mobile.svg" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home ">
+      <a href="index.html">
+        <span>开发指南</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs active">
+      <a href="interaction_guide.html">
+        <span>设计指南</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+  
+
+    
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <div class="sidebar">
+            
+<div class="docs-menu">
+  <h4>目录</h4>
+  <ul>
+    
+    <li class="">
+      <a href="interaction_guide.html">实体及交互规范</a>
+    </li>
+    
+    <li class="active">
+      <a href="glossary.html">建模规范</a>
+    </li>
+    
+  </ul>
+</div>
+
+          </div>
+        </div>
+        <div class="col-12 col-md-9">
+          
+
+<!-- <span class="overview">Overview</span>
+ -->
+
+<h1 class="title">建模规范</h1>
+<div class="content">
+<p>
+
+
+  <div class="summary mb-2">
+    <p><strong>目的：</strong>让开发者更好地建立符合影见开发者要求的 3D 模型。<br><br>
+
+      <strong>建模要求：</strong>
+      <ol>
+        <li>以米（m）为单位。</li>
+        <li>从建模软件中导出的模型需合并成一个 mesh。</li>
+        <li>模型的坐标系位于模型的几何中心点。</li>
+        <li>模型导入到 Unity 中，模型的正上方向与 Unity 的 Z 轴方向一致。</li>
+      </ol>
+           
+      假设我们需要建了一个如下图所示的模型：下半部分圆柱直径 1m，高 0.5m；上半部分圆柱直径 0.5m，高 0.5m。
+      <img src="images/modeling_guide/model-sample.png">
+      以下整理了主流 3D 建模软件中的建模流程，供参考：
+
+    </p>
+  </div>
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">Modo 建模示意
+    </h2>
+    <p>图示所使用软件版本：Modo 12.1<br><br>
+      
+      <strong>第一步：设置米（m）为单位</strong> <br>
+      <img src="images/modeling_guide/Modo/0.png"><br>
+      <strong>第二步：按照假设的尺寸建模</strong> <br>
+      <img src="images/modeling_guide/Modo/1.png"><br>
+      <strong>第三步：导入到 Unity</strong> <br>
+      <img src="images/modeling_guide/Modo/2.png"><br>
+      与一个边长为 1m 的 Cube 比较，尺寸符合要求；但是模型正上方向与 Z 轴方向不一致，需要重新在建模软件中调整模型朝向。<br><br>
+      <strong>第四步：如图在建模软件中设置 Rotation X 为 90 度，最终的导出的模型为一个整体 mesh</strong><br>
+      <img src="images/modeling_guide/Modo/3.png"><br>
+      <img src="images/modeling_guide/Modo/4.png"><br>
+      <strong>第五步：重新导入到 Unity</strong><br>
+      <img src="images/modeling_guide/Modo/5.png">
+      与一个边长为 1m 的 Cube 比较，尺寸符合要求且模型正上方向与 Z 轴方向一致，模型满足要求。
+  </div>
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">Maya 建模示意
+    </h2>
+    <p>图示所使用软件版本：Maya 2018.3，基本逻辑同上，此处只展示部分关键步骤<br><br>
+      
+      <strong>单位设置</strong> <br>
+      <img src="images/modeling_guide/Maya/0.png"><br>
+      <strong>朝向调整</strong> <br>
+      <img src="images/modeling_guide/Maya/1.png"><br>
+      <strong>比例调整</strong> <br>
+      按照假设尺寸建模即可，不需要缩放变换。
+
+  </div>
+
+   
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">3D Max 建模示意
+    </h2>
+    <p>图示所使用软件版本：3D Max 2017<br><br>
+      
+      <strong>单位设置</strong> <br>
+      <img src="images/modeling_guide/3D_Max/0.png"><br>
+      <img src="images/modeling_guide/3D_Max/1.png"><br>
+      <strong>朝向调整</strong> <br>
+      不需要绕坐标系旋转，需在导出设置的时候不勾选 Flip YZ-axis<br>
+      <img src="images/modeling_guide/3D_Max/2.png"><br>
+      <strong>比例调整</strong> <br>
+      按照假设尺寸建模即可，不需要缩放变换。
+
+  </div>
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">Rhino 建模示意
+    </h2>
+    <p>图示所使用软件版本：Rhino 5.4<br><br>
+      
+      <strong>单位设置</strong> <br>
+      <img src="images/modeling_guide/Rhino/0.png"><br>
+      <strong>朝向调整</strong> <br>
+      不需要绕坐标系旋转。<br><br>
+      <strong>比例调整</strong> <br>
+      按照假设尺寸建模即可，不需要缩放变换。
+
+  </div>
+
+
+<div class="summary mb-2">
+    <h2 class="title-summary">Cinema 4D 建模示意
+    </h2>
+    <p>图示所使用软件版本：Cinema 4D R8<br><br>
+      
+      <strong>单位设置</strong> <br>
+      <img src="images/modeling_guide/C4D/0.png"><br>
+      <strong>朝向调整</strong> <br>
+      如图，P 设置成 270 度<br>
+      <img src="images/modeling_guide/C4D/1.png"><br>
+      <strong>比例调整</strong> <br>
+      如图，尺寸缩小 100 倍<br>
+      <img src="images/modeling_guide/C4D/2.png"><br>
+  </div>
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">Houdini 建模示意
+    </h2>
+    <p>图示所使用软件版本：Houdini 17.5<br><br>
+      
+      <strong>单位设置</strong> <br>
+      按照默认尺度（默认为米）即可。<br><br>
+      <strong>朝向调整</strong> <br>
+      如图，P 设置成 270 度<br>
+      <img src="images/modeling_guide/Houdini/0.png"><br>
+      <strong>比例调整</strong> <br>
+      如图，尺寸放大 100 倍<br>
+      <img src="images/modeling_guide/Houdini/1.png"><br>
+  </div>
+
+
+ 
+
+</p>
+
+</div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            <li class="oldversions"><a href="/"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="script.js"></script>
+  
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130251315-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-130251315-5');
+    </script>
+  
+
+
+</body>
+
+</html>
