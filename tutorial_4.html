@@ -110,11 +110,11 @@
       <a href="tutorial_2.html">教程2：开发图像识别应用</a>
     </li>
 
-    <li class="active">
+    <li class="">
       <a href="tutorial_3.html">教程3：拍照</a>
     </li>
 
-    <li class="">
+    <li class="active">
       <a href="tutorial_4.html">教程4：使用远程调试功能</a>
     </li>
 
@@ -133,79 +133,60 @@
 <!-- <span class="overview">Overview</span>
  -->
 
-<h1 class="title">教程3：拍照</h1>
+<h1 class="title">教程4：使用远程调试功能</h1>
 <div class="content">
 <p>
-  提供了3个功能函数，分别为：
+  当应用发布并安装到影见设备之后可能会出现各种难以排查的异常，这时候你就需要使用远程调试功能，远程调试功能会将影见设备当前的应用数据同步到UnityEditor中，便于开发者进行调试。<br><br>
+
+  使用方法如下：
   <div class="summary mb-2">
-    <h2 class="title-summary">打开相机
-    <p>如果只是想拍照的话可以不用调用这个函数，只有想分步处理开启相机和拍照的时候才用到这个函数。
-      <div class="highlight">
-        <pre class="chroma">
-
-          /// 打开相机，默认分辨率为640*480
-          /// <param name="action">相机打开后会回调此Action</param>
-          /// <param name="resolution">设置相机的分辨率：1为640*360，2为1280*720，3为1920*1080</param>
-          public static void OpenCamera(Action action, int resolution = 1)
-        </pre>
-      </div>
-    </p>
-    <h3>使用方法：</h3>
-    <div class="highlight">
-      <pre class="chroma">
-
-        任意位置调用：AURABehaviour.OpenCamera(YourOpenCameraAction);
-      </pre>
-    </div>
-
-  </div>
-
-  <div class="summary mb-2">
-    <h2 class="title-summary">关闭相机
+    <h2 class="title-summary">1. 启用“远程调试”功能：
     </h2>
-    <p>相机长时间不使用的话需要手动关闭以减小不必要的性能开销。
-      <div class="highlight">
-        <pre class="chroma">
-
-          /// 关闭相机
-          public static void CloseCamera()
-        </pre>
-      </div>
+    <p>在开发者工具窗口中，设置页面启用远程调试功能，如下图：
+      <img src="images/tutorial_3/1.png">
+      <br>
     </p>
-    <h3>使用方法：</h3>
-    <div class="highlight">
-      <pre class="chroma">
-
-        任意位置调用：AURABehaviour.CloseCamera();
-      </pre>
-    </div>
   </div>
-
 
   <div class="summary mb-2">
-    <h2 class="title-summary">拍照
+    <h2 class="title-summary">2. 配置ip及端口号
     </h2>
-    <p>可以直接调用拍照函数执行拍照，而不用先调用打开相机（除非有打开相机和拍照分步处理的需求）
-      <div class="highlight">
-        <pre class="chroma">
-
-          /// 拍照
-          /// <param name="action">照片保存后会回调此Action</param>
-          /// <param name="resolution">设置相机的分辨率：1为640*360，2为1280*720，3为1920*1080</param>
-          public static void TakePhoto(Action<Texture2D> action, int resolution = 1)
-        </pre>
-      </div>
+    <p>
+      当启用远程调试功能后，场景中的AURA(Clone)物体上将会出现RemoteDebug组件，如下图。将开发者电脑的局域网ip输入ip文本框内，port文本框中可输入开发者电脑中任意未被占用的端口号。
+      <img src="images/tutorial_3/2.png">
+      <br>
     </p>
-    <h3>使用方法：</h3>
-    <div class="highlight">
-      <pre class="chroma">
-
-        任意位置调用：AURABehaviour.TakePhoto(TakePhotoAction);
-      </pre>
-    </div>
   </div>
 
+  <div class="summary mb-2">
+    <h2 class="title-summary">3. 图像位置姿态更新
+    </h2>
+  </div>
 
+  <div class="summary mb-2">
+    <h2 class="title-summary">4. 确保影见设备和开发者电脑连入同一个局域网
+    </h2>
+  </div>
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">5. 在影见上运行刚刚安装的应用
+    </h2>
+  </div>
+
+  <div class="summary mb-2">
+    <h2 class="title-summary">6. 在UnityEditor中运行工程
+    </h2>
+  </div>
+
+   <div class="summary mb-2">
+    <h2 class="title-summary">7. 当前已经进入了远程调试模式，可以放置模具开始调试
+    </h2>
+    <p>
+      <img src="images/tutorial_3/3.png">
+      <br>
+      <strong>注意：如果按照上面的步骤操作后，UnityEditor中并没有与影见端联动（联动的效果如下图所示，Game视图左侧会有数据显示），请确保开发者电脑的防火墙已关闭，并重新执行第4-6步操作。 </strong>
+    </p>
+  </div>
 
 </p>
 

@@ -7,30 +7,30 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>影见开发者文档</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <link rel="icon" href="images/favicon.ico">
- 
+
   <link rel="stylesheet" href="css/main.css">
-  
+
 </head>
 
 <body class='page page-default-list'>
   <div id="main-menu-mobile" class="main-menu-mobile">
   <ul>
-    
-    
+
+
     <li class="menu-item-docs active">
       <a href="index.html">
         <span>开发指南</span>
       </a>
     </li>
-    
+
     <li class="menu-item-docs">
       <a href="interaction_guide.html">
         <span>设计指南</span>
       </a>
     </li>
-    
+
   </ul>
 </div>
   <div class="wrapper">
@@ -44,20 +44,20 @@
     </div>
     <div id="main-menu" class="main-menu">
   <ul>
-    
-    
+
+
     <li class="menu-item-home active">
       <a href="index.html">
         <span>开发指南</span>
       </a>
     </li>
-    
+
     <li class="menu-item-docs">
       <a href="interaction_guide.html">
         <span>设计指南</span>
       </a>
     </li>
-    
+
   </ul>
 </div>
     <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
@@ -69,30 +69,30 @@
 </div>
 
 
-  
 
-    
+
+
     <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
       <div class="row">
         <div class="col-12 col-md-3 mb-3">
           <div class="sidebar">
-            
+
 <div class="docs-menu">
   <h4>目录</h4>
   <ul>
-    
+
     <li class="active" >
       <a href="index.html">SDK 简介</a>
     </li>
-    
+
     <li class="">
       <a href="glossary.html">名词解释</a>
     </li>
-    
+
     <li class="">
       <a href="axis.html">影见坐标系</a>
     </li>
-    
+
     <li class="">
       <a href="start.html">快速入门：创建你的第一个Aura应用</a>
     </li>
@@ -110,33 +110,38 @@
     </li>
 
     <li class="">
-      <a href="tutorial_3.html">教程3：使用远程调试功能</a>
+      <a href="tutorial_3.html">教程3：拍照</a>
+    </li>
+
+    <li class="">
+      <a href="tutorial_4.html">教程4：使用远程调试功能</a>
     </li>
 
     <li class="">
       <a href="api.html">API接口说明</a>
     </li>
 
-    
+
+
   </ul>
 </div>
 
           </div>
         </div>
         <div class="col-12 col-md-9">
-          
+
 
 <!-- <span class="overview">Overview</span>
  -->
 
 <h1 class="title">SDK 简介</h1>
 <div class="content">
-  
+
 <p>开发者可以使用Aura SDK和Unity进行影见应用的开发，并发布在影见平台上。开发应用之前，建议阅读《影见说明书》中的安装说明、投影距离及范围、校准说明，熟悉影见的使用。</p>
 
 
 <div class="summary mb-2">
-  
+
   <h2 class="title-summary">功能概述</h2>
   <p> 开发者可以在影见上实现以下几种基础能力：
 
@@ -152,7 +157,7 @@
       <li>对纹理特征丰富的单张图像进行识别、跟踪</li>
       <li>在图像周围投影动画等多媒体内容</li>
     </ul>
-      
+
     <ul> <div style="font-weight: bold; margin-bottom: 10px;"><span> 实体交互：</span></div>
       <li>获取桌面、物体表面或图像表面的点击数据</li>
     </ul>
@@ -166,10 +171,10 @@
 </div>
 
 <div class="summary mb-2">
-  
+
   <h2 class="title-summary">运行环境</h2>
-  <p> 
-    <ul> 
+  <p>
+    <ul>
       <li>支持的unity版本： Unity 2017.1 及以上</li>
       <li>操作系统： Windows 7，8，10</li>
       <li>支持发布的Android版本： Android 4.4</li>
@@ -182,17 +187,16 @@
 
 
 <div class="summary mb-2">
-  
+
   <h2 class="title-summary">Unity Package 下载</h2>
-  <p> 
-    <a href="https://ar.163.com/package/yingjian">v1.1下载</a> 
+  <p>
+    <a href="https://github.com/chenjingzyd/AuraSDK/blob/master/AURA_SDK_v2019.3.0b8.unitypackage">v2019.03下载</a>
     <br><br>
-    v1.1更新说明：
-    <ul> 
-      <li>支持的unity版本： Unity 2017.1 及以上</li>
-      <li>操作系统： Windows 7，8，10</li>
-      <li>支持发布的Android版本： Android 4.4</li>
-      <li>Android 开发环境配置：Android Studio + SDK 4.4</li>
+    v2019.03 更新说明：
+    <ul>
+      <li>在同一个应用中可同时开启物体识别、图像识别</li>
+      <li>导入识别模型或图像时，可自动判断识别目标的可识别性并给出相应的建议 （如尺寸大小纹理等是否符合要求，以及同一个工程中是否存在相似目标）</li>
+      <li>物体识别、图像识别的接口修改</li>
     </ul>
 
   </p>
@@ -200,13 +204,10 @@
 </div>
 
 
-
-
-
         </div>
       </div>
     </div>
-    
+
   </div>
 
   <div class="sub-footer">
@@ -223,15 +224,15 @@
   </div>
 </div>
 
-  
 
-  
-  
 
-  
+
+
+
+
   <script type="text/javascript" src="script.js"></script>
-  
-    
+
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130251315-5"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -239,7 +240,7 @@
       gtag('js', new Date());
       gtag('config', 'UA-130251315-5');
     </script>
-  
+
 
 
 </body>

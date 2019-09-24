@@ -7,30 +7,30 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>影见开发者文档</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="icon" href="images/favicon.ico"> 
-  
+
+  <link rel="icon" href="images/favicon.ico">
+
   <link rel="stylesheet" href="css/main.css">
-    
+
 
 </head>
 
 <body class='page page-default-list'>
   <div id="main-menu-mobile" class="main-menu-mobile">
   <ul>
-       
+
     <li class="menu-item-docs active">
       <a href="index.html">
         <span>开发指南</span>
       </a>
     </li>
-    
+
     <li class="menu-item-docs">
       <a href="interaction_guide.html">
         <span>设计指南</span>
       </a>
     </li>
-    
+
   </ul>
 </div>
   <div class="wrapper">
@@ -44,20 +44,20 @@
     </div>
     <div id="main-menu" class="main-menu">
   <ul>
-    
-    
+
+
     <li class="menu-item-home active">
       <a href="index.html">
         <span>开发指南</span>
       </a>
     </li>
-    
+
     <li class="menu-item-docs">
       <a href="interaction_guide.html">
         <span>设计指南</span>
       </a>
     </li>
-    
+
   </ul>
 </div>
     <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
@@ -69,30 +69,30 @@
 </div>
 
 
-  
 
-    
+
+
     <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
       <div class="row">
         <div class="col-12 col-md-3 mb-3">
           <div class="sidebar">
-            
+
 <div class="docs-menu">
   <h4>目录</h4>
   <ul>
-    
+
     <li >
       <a href="index.html">SDK 简介</a>
     </li>
-    
+
     <li class=" ">
       <a href="glossary.html">名词解释</a>
     </li>
-    
+
     <li class="">
       <a href="axis.html">影见坐标系</a>
     </li>
-    
+
     <li class="">
       <a href="start.html">快速入门：创建你的第一个Aura应用</a>
     </li>
@@ -110,21 +110,25 @@
     </li>
 
     <li class="">
-      <a href="tutorial_3.html">教程3：使用远程调试功能</a>
+      <a href="tutorial_3.html">教程3：拍照</a>
+    </li>
+
+    <li class="">
+      <a href="tutorial_4.html">教程4：使用远程调试功能</a>
     </li>
 
     <li class="active">
       <a href="api.html">API接口说明</a>
     </li>
 
-    
+
   </ul>
 </div>
 
           </div>
         </div>
         <div class="col-12 col-md-9">
-          
+
 
 <!-- <span class="overview">Overview</span>
  -->
@@ -158,7 +162,7 @@
           </tr>
           <tr>
             <td>height</td>
-            <td>模具的高度</td>
+            <td>模具的高度（单位：mm）</td>
             <td>float</td>
           </tr>
           <tr>
@@ -173,7 +177,7 @@
           </tr>
           <tr>
             <td>position</td>
-            <td>模具当前在投影仪坐标系下的位置，未知物体的position为空</td>
+            <td>模具当前在投影仪坐标系下的位置（单位：m），未知物体的position为空</td>
             <td>Vector3</td>
           </tr>
           <tr>
@@ -183,7 +187,7 @@
           </tr>
           <tr>
             <td>contourPoints</td>
-            <td>模具当前在屏幕坐标系下的轮廓点，如果没有开启轮廓点则为null</td>
+            <td>模具当前在屏幕坐标系下的轮廓点（单位：像素），如果没有开启轮廓点则为null</td>
             <td> List<span><</span>Vector2<span>></span> </td>
           </tr>
         </tbody>
@@ -207,7 +211,7 @@ public class ObjectInfoDemo : AURABehaviour
     #endregion
 
     List<Vector2> contourPoints = new List<Vector2>();
-    
+
     void AURABehaviour_OnObjectDetected(ObjectInfo objectInfo)
     {
         Debug.Log("检测到模具：" + objectInfo.name + "ID为：" + objectInfo.id + "Position：" + objectInfo.position + "Quaternion：" + objectInfo.quaternion);
@@ -224,7 +228,7 @@ public class ObjectInfoDemo : AURABehaviour
     {
         Debug.Log("丢失模具：" + objectInfo.name + "ID为：" + objectInfo.id);
     }
-    
+
     void OnGUI()
     {
         foreach(Vector2 contourPoint in contourPoints)
@@ -258,10 +262,10 @@ public class ObjectInfoDemo : AURABehaviour
           </tr>
           <tr>
             <td>contourPoints</td>
-            <td>模具的四个轮廓点，如果没有开启轮廓点则为null</td>
+            <td>模具的四个轮廓点（单位：像素），如果没有开启轮廓点则为null </td>
             <td>List<span><</span>Vector2<span>></span></td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
       <div class="highlight">
         <pre class="chroma">
@@ -288,18 +292,18 @@ public class ImageInfoDemo : AURABehaviour
         Debug.Log("检测到图像：" + imageInfo.name);
         contourPoints = imageInfo.contourPoints;
     }
-    
+
     void OnImageUpdated(ImageInfo imageInfo)
     {
         Debug.Log("图像位置姿态更新：" + imageInfo.name);
         contourPoints = imageInfo.contourPoints;
     }
-    
+
     void OnImageLost(ImageInfo imageInfo)
     {
         Debug.Log("丢失图像：" + imageInfo.name);
     }
-    
+
     void OnGUI()
     {
         foreach(Vector2 contourPoint in contourPoints)
@@ -312,7 +316,7 @@ public class ImageInfoDemo : AURABehaviour
       </div>
     </p>
   </div>
- 
+
   <div class="summary mb-2">
     <h2 class="title-summary">AURAInput
     </h2>
@@ -341,7 +345,7 @@ public class ImageInfoDemo : AURABehaviour
             <td>当前场景中所有手的信息 </td>
             <td>List<span><</span>palm<span>></span></td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
   </div>
 
@@ -368,7 +372,7 @@ public class ImageInfoDemo : AURABehaviour
             <td>握拳、摊掌手势 </td>
             <td>GraspState</td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
   </div>
 
@@ -396,7 +400,7 @@ public class ImageInfoDemo : AURABehaviour
             <td>Left</td>
             <td>向左挥手</td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
   </div>
 
@@ -424,7 +428,7 @@ public class ImageInfoDemo : AURABehaviour
             <td>OpenPalm</td>
             <td>摊开手掌</td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
       <div class="highlight">
         <pre class="chroma">
@@ -445,7 +449,7 @@ public class ObjectInfoDemo : AURABehaviour
     #endregion
 
     List<Vector2> contourPoints = new List<Vector2>();
-    
+
     void AURABehaviour_OnObjectDetected(ObjectInfo objectInfo)
     {
         Debug.Log("检测到模具：" + objectInfo.name + "ID为：" + objectInfo.id + "Position：" + objectInfo.position + "Quaternion：" + objectInfo.quaternion);
@@ -462,7 +466,7 @@ public class ObjectInfoDemo : AURABehaviour
     {
         Debug.Log("丢失模具：" + objectInfo.name + "ID为：" + objectInfo.id);
     }
-    
+
     void OnGUI()
     {
         foreach(Vector2 contourPoint in contourPoints)
@@ -512,7 +516,7 @@ public class ObjectInfoDemo : AURABehaviour
             <td>手指点击的位置 </td>
             <td>List<span><</span>Fingertip<span>></span></td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
   </div>
 
@@ -554,7 +558,7 @@ public class ObjectInfoDemo : AURABehaviour
             <td>手指是否点击到桌面   </td>
             <td>bool</td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
   </div>
 
@@ -595,7 +599,7 @@ public class ObjectInfoDemo : AURABehaviour
             <td>OnImageLost </td>
             <td>public void OnImageLost(ImageInfo objectInfo);//当场景中的图片被拿出投影区域的时候回调一次 </td>
           </tr>
-        </tbody>    
+        </tbody>
       </table>
   </div>
 
@@ -603,15 +607,15 @@ public class ObjectInfoDemo : AURABehaviour
     <h2 class="title-summary">点击事件
     </h2>
     <p><strong>点击在物体上</strong> <br>
-     <ul> 
+     <ul>
       <li>直接用Input.GetMouseButtonDown(0) 来获得当前是否执行了点击，然后通过Input.mousePostion来判断是否点击在物体上（注意：建议点击事件都用这个而不是Input.GetMouseButton，因为用户点击过快的时候有可能不能触发Input.GetMouseButton）</li>
       <li>通过onObjectDetected的objectInfo.press来判断</li>
     </ul>
     <strong>点击在桌面上</strong> <br>
-     <ul> 
+     <ul>
       <li>直接用Input.GetMouseButtonDown(0) 来获得点击状态</li>
       <li>对于多手点击或其他复杂情况可以通过遍历每个Fingertip来判断</li>
-    </ul>            
+    </ul>
     </p>
   </div>
 
@@ -621,12 +625,12 @@ public class ObjectInfoDemo : AURABehaviour
     <p><strong>立体投影</strong> <br>
 
       首先需要引用AURA命名空间 using AURA,<br>
-       <ul> 
+       <ul>
       <li>世界坐标转屏幕坐标<br><br>
       <div class="highlight">
         <pre class="chroma">
 
-yourCamera.WorldToScreenPointForAURA(Vector3 position) 
+yourCamera.WorldToScreenPointForAURA(Vector3 position)
         </pre>
       </div>
      </li>
@@ -634,20 +638,20 @@ yourCamera.WorldToScreenPointForAURA(Vector3 position)
       <div class="highlight">
         <pre class="chroma">
 
-yourCamera.ScreenToWorldPointForAURA(Vector3 position) 
+yourCamera.ScreenToWorldPointForAURA(Vector3 position)
         </pre>
       </div>
      </li>
-    </ul>            
+    </ul>
     </p>
 
     <p><strong>非立体投影</strong> <br>
-       <ul> 
+       <ul>
       <li>世界坐标转屏幕坐标<br><br>
       <div class="highlight">
         <pre class="chroma">
 
-yourCamera.WorldToScreenPoint(Vector3 position)  
+yourCamera.WorldToScreenPoint(Vector3 position)
  </pre>
       </div>
      </li>
@@ -655,11 +659,11 @@ yourCamera.WorldToScreenPoint(Vector3 position)
       <div class="highlight">
         <pre class="chroma">
 
-yourCamera.WorldToScreenPoint(Vector3 position)       
+yourCamera.WorldToScreenPoint(Vector3 position)
  </pre>
       </div>
      </li>
-    </ul>            
+    </ul>
     </p>
   </div>
 
@@ -671,7 +675,7 @@ yourCamera.WorldToScreenPoint(Vector3 position)
 </div>
       </div>
     </div>
-    
+
   </div>
 
   <div class="sub-footer">
@@ -688,15 +692,15 @@ yourCamera.WorldToScreenPoint(Vector3 position)
   </div>
 </div>
 
-  
 
-  
-  
 
-  
+
+
+
+
   <script type="text/javascript" src="script.js"></script>
-  
-    
+
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130251315-5"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -704,7 +708,7 @@ yourCamera.WorldToScreenPoint(Vector3 position)
       gtag('js', new Date());
       gtag('config', 'UA-130251315-5');
     </script>
-  
+
 
 
 </body>

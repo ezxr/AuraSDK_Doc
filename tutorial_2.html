@@ -7,31 +7,31 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>影见开发者文档</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="icon" href="images/favicon.ico"> 
-  
+
+  <link rel="icon" href="images/favicon.ico">
+
   <link rel="stylesheet" href="css/main.css">
-    
+
 
 </head>
 
 <body class='page page-default-list'>
   <div id="main-menu-mobile" class="main-menu-mobile">
   <ul>
-    
-    
+
+
     <li class="menu-item-docs active">
       <a href="index.html">
         <span>开发指南</span>
       </a>
     </li>
-    
+
     <li class="menu-item-docs">
       <a href="interaction_guide.html">
         <span>设计指南</span>
       </a>
     </li>
-    
+
   </ul>
 </div>
   <div class="wrapper">
@@ -45,20 +45,20 @@
     </div>
     <div id="main-menu" class="main-menu">
   <ul>
-    
-    
+
+
     <li class="menu-item-home active">
       <a href="index.html">
         <span>开发指南</span>
       </a>
     </li>
-    
+
     <li class="menu-item-docs">
       <a href="interaction_guide.html">
         <span>设计指南</span>
       </a>
     </li>
-    
+
   </ul>
 </div>
     <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
@@ -70,30 +70,30 @@
 </div>
 
 
-  
 
-    
+
+
     <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
       <div class="row">
         <div class="col-12 col-md-3 mb-3">
           <div class="sidebar">
-            
+
 <div class="docs-menu">
   <h4>目录</h4>
   <ul>
-    
+
     <li >
       <a href="index.html">SDK 简介</a>
     </li>
-    
+
     <li class=" ">
       <a href="glossary.html">名词解释</a>
     </li>
-    
+
     <li class="">
       <a href="axis.html">影见坐标系</a>
     </li>
-    
+
     <li class="">
       <a href="start.html">快速入门：创建你的第一个Aura应用</a>
     </li>
@@ -111,21 +111,24 @@
     </li>
 
     <li class="">
-      <a href="tutorial_3.html">教程3：使用远程调试功能</a>
+      <a href="tutorial_3.html">教程3：拍照</a>
+    </li>
+
+    <li class="">
+      <a href="tutorial_4.html">教程4：使用远程调试功能</a>
     </li>
 
     <li class="">
       <a href="api.html">API接口说明</a>
     </li>
 
-    
   </ul>
 </div>
 
           </div>
         </div>
         <div class="col-12 col-md-9">
-          
+
 
 <!-- <span class="overview">Overview</span>
  -->
@@ -135,9 +138,9 @@
 <p>
   首先，请确保工程中已导入AuraSDK。然后，打开“影见开发者工具”，启用图像识别功能，添加新图片，选择图片所在的目录。<br><br>
 
-  <strong>  
+  <strong>
     注意：
-    <ol> 
+    <ol>
       <li>支持 .jpg或.png格式，请确保图像不小于 300x300 像素。</li>
       <li>当前只支持单个文件夹的上传，请提前将所有要识别的图像放入同一目录中，请不要将图片放入子目录中。</li>
       <li>当前图像识别只支持英文路径，请将模型名称用英文命名，并放入英文路径下。</li>
@@ -170,10 +173,10 @@
       </div>
 
         <strong>参数说明：imageInfo：为ImageInfo类型，包含检测到的图像信息 （图像的name，轮廓点）。</strong>
-        
+
     </p>
   </div>
- 
+
   <div class="summary mb-2">
     <h2 class="title-summary">3. 图像位置姿态更新
     </h2>
@@ -189,7 +192,7 @@
       </div>
 
         <strong>参数说明：imageInfo：为ImageInfo类型，包含检测到的图像信息 （图像的name，轮廓点）。</strong>
-        
+
     </p>
   </div>
 
@@ -204,21 +207,21 @@
         <pre class="chroma">
 
         void OnImageLost(ImageInfo imageInfo)
-        </pre> 
+        </pre>
       </div>
 
         <strong>参数说明：imageInfo：为ImageInfo类型，包含检测到的图像信息 （图像的name，轮廓点）。</strong>
-        
+
     </p>
   </div>
- 
+
 
 </p>
 
 </div>
       </div>
     </div>
-    
+
   </div>
 
   <div class="sub-footer">
@@ -235,15 +238,15 @@
   </div>
 </div>
 
-  
 
-  
-  
 
-  
+
+
+
+
   <script type="text/javascript" src="script.js"></script>
-  
-    
+
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130251315-5"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -251,7 +254,7 @@
       gtag('js', new Date());
       gtag('config', 'UA-130251315-5');
     </script>
-  
+
 
 
 </body>
